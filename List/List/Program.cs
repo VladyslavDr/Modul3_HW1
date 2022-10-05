@@ -7,15 +7,12 @@ namespace List
     {
         public static void Main(string[] args)
         {
-            var list1 = new MyList<int>(2, 5, 8, 4);
-            list1.Add(3);
+            var list1 = new MyList<int>(2, 6, 5, 9, 5);
             list1.Show();
 
-            var arr = new int[] { 2, 3, 6, 7 };
-
-            list1.AddRange(arr);
+            list1.Remove(5);
+            list1.Remove(5);
             list1.Show();
-
             Console.WriteLine($"size: {list1.GetSize}");
         }
     }

@@ -24,6 +24,43 @@ namespace List
         }
 
         public int GetSize => _array.Length;
+
+        public bool Remove(Type value)
+        {
+            var index = GetItemIndex(value);
+
+            if (index.Item1 == false)
+            {
+                return false;
+            }
+
+            RemoveAt(index.Item2);
+            return true;
+        }
+
+        public bool RemoveAt(int index)
+        {
+            if (index > _index)
+            {
+                return false;
+            }
+
+            Type[] backupArray = _array;
+            _array = new Type[_initialSize];
+
+            for (var i = 0; i < _array.Length; i++)
+            {
+                if (i == index)
+                {
+                    continue;
+                }
+
+                _array[i] = backupArray[i];
+            }
+
+            return true;
+        }
+
         public void AddRange(Type[] values)
         {
             Add(values);
@@ -81,6 +118,23 @@ namespace List
             }
 
             Console.WriteLine();
+        }
+
+        private (bool, int) GetItemIndex(Type value)
+        {
+            var index = 0;
+
+            foreach (var v in _array)
+            {
+                if (v.Equals(value))
+                {
+                    return (true, index);
+                }
+
+                index++;
+            }
+
+            return (false, -1);
         }
     }
 }
