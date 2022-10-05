@@ -9,5 +9,6 @@ namespace List
     public interface IMyListTemplate<Type>
     {
         public void Add(params Type[] values);
+        public void AddRange(List<Type> values);
     }
 }

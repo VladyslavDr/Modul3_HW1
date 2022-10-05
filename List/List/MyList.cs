@@ -24,6 +24,32 @@ namespace List
         }
 
         public int GetSize => _array.Length;
+        public void AddRange(Type[] values)
+        {
+            Add(values);
+        }
+
+        public void AddRange(List<Type> values)
+        {
+            if (values.Count > _array.Length - _index)
+            {
+                var index = 0;
+                _initialSize *= 2;
+
+                Type[] backupArray = _array;
+                _array = new Type[_initialSize];
+
+                foreach (var value in backupArray)
+                {
+                    _array[index++] = value;
+                }
+            }
+
+            foreach (var value in values)
+            {
+                _array[_index++] = value;
+            }
+        }
 
         public void Add(params Type[] values)
         {
