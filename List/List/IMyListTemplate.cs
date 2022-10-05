@@ -12,5 +12,6 @@ namespace List
         public void AddRange(List<Type> values);
         public bool RemoveAt(int index);
         public bool Remove(Type value);
+        public void Sort();
     }
 }

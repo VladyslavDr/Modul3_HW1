@@ -25,6 +25,19 @@ namespace List
 
         public int GetSize => _array.Length;
 
+        public IEnumerator<Type> GetEnumerator()
+        {
+            for (var index = 0; index < _array.Length; index++)
+            {
+                yield return _array[index];
+            }
+        }
+
+        public void Sort()
+        {
+            Array.Sort(_array);
+        }
+
         public bool Remove(Type value)
         {
             var index = GetItemIndex(value);
@@ -108,16 +121,6 @@ namespace List
             {
                 _array[_index++] = value;
             }
-        }
-
-        public void Show()
-        {
-            foreach (var value in _array)
-            {
-                Console.Write($"{value} ");
-            }
-
-            Console.WriteLine();
         }
 
         private (bool, int) GetItemIndex(Type value)
