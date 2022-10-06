@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace List
 {
-    public interface IMyListTemplate<Type>
+    public interface IMyList<Type>
     {
         public void Add(params Type[] values);
         public void AddRange(List<Type> values);
-        public bool RemoveAt(int index);
+        public void RemoveAt(int index);
         public bool Remove(Type value);
         public void Sort();
     }
