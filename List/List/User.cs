@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace List
 {
-    public class User : IComparable
+    public class User
     {
         private readonly int _id;
 
@@ -18,17 +18,5 @@ namespace List
 
         public int Id => _id;
         public string Name { get; set; }
-
-        public int CompareTo(object obj)
-        {
-            if (obj is User user)
-            {
-                return Name.CompareTo(user.Name);
-            }
-            else
-            {
-                throw new ArgumentException("Некорректное значение параметра");
-            }
-        }
     }
 }

@@ -28,7 +28,7 @@ namespace List
             var users = new MyList<User>(user1, user2, user3, user4);
             users.Add(user5, user5, user1);
 
-            users.Sort(new UserComparer());
+            users.Sort(new UserNameComparer());
             return users;
         }
     }

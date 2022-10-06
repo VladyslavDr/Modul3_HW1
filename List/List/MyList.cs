@@ -30,10 +30,6 @@ namespace List
 
         public int Size => _size;
 
-        public void Sort()
-        {
-        }
-
         public IEnumerator<Type> GetEnumerator()
         {
             return GetGenericEnumerator();
