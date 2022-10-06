@@ -44,6 +44,11 @@ namespace List
             return GetGenericEnumerator();
         }
 
+        public void Sort(IComparer<Type> comparer)
+        {
+            Array.Sort(_array, comparer);
+        }
+
         public bool Remove(Type value)
         {
             var index = GetItemIndex(value);

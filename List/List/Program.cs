@@ -14,7 +14,7 @@ namespace List
                 Console.Write($"{user.Name} ");
             }
 
-            Console.WriteLine($"count: {users.Count}");
+            Console.WriteLine($"\ncount: {users.Count}");
         }
 
         public static IReadOnlyCollection<User> GetUsers()
@@ -25,13 +25,10 @@ namespace List
             var user4 = new User("Boris");
             var user5 = new User("Bob");
 
-            var users = new MyList<User>(user1, user2, user3, user5);
+            var users = new MyList<User>(user1, user2, user3, user4);
+            users.Add(user5, user5, user1);
 
-            users.Remove(user5);
-            users.Remove(user1);
-
-            users.Add(user3, user3, user3);
-
+            users.Sort(new UserComparer());
             return users;
         }
     }
