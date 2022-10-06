@@ -12,6 +12,6 @@ namespace List
         public void AddRange(List<Type> values);
         public void RemoveAt(int index);
         public bool Remove(Type value);
-        public void Sort();
+        public void Sort(IComparer<Type> comparer);
     }
 }
